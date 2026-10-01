@@ -16,11 +16,15 @@ LangChain, затем обвязка Deep Agents с планом, файлами
 
 Нужен [uv](https://docs.astral.sh/uv/getting-started/installation/). Команды одинаковы для macOS, Linux и Windows.
 
+Папка уже есть в репозитории, склонированном на прошлом занятии. Из папки `llm_api_to_langchain`:
+
 ```bash
-git clone https://github.com/trashchenkov/mipt_llm_api   # если репозитория ещё нет; иначе git pull
-cd mipt_llm_api/langchain_deep_agents
+cd ../langchain_deep_agents
 uv sync
 ```
+
+Если репозитория нет: `git clone https://github.com/trashchenkov/mipt_llm_api`, затем
+`cd mipt_llm_api/langchain_deep_agents` и `uv sync`.
 
 `uv sync` сам поставит Python 3.12 и точные версии библиотек из `uv.lock`.
 
