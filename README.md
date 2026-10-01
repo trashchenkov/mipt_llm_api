@@ -6,6 +6,7 @@ Telegram-канал: [t.me/gigatrash](https://t.me/gigatrash).
 | Тема | Папка |
 |---|---|
 | От API языковой модели к LangChain | [llm_api_to_langchain](llm_api_to_langchain/) |
+| LangChain и Deep Agents | [langchain_deep_agents](langchain_deep_agents/) |
 
 ## Что понадобится
 
