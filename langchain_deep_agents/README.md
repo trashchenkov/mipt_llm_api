@@ -20,16 +20,24 @@ LangChain, затем обвязка Deep Agents с планом, файлами
 git clone https://github.com/trashchenkov/mipt_llm_api   # если репозитория ещё нет; иначе git pull
 cd mipt_llm_api/langchain_deep_agents
 uv sync
-cp .env.example .env          # Windows: copy .env.example .env
 ```
 
 `uv sync` сам поставит Python 3.12 и точные версии библиотек из `uv.lock`.
 
 ## 2. Настройки: `.env`
 
-Заполните `GIGACHAT_CREDENTIALS` — тот же ключ авторизации GigaChat API, что на прошлом занятии
-(можно скопировать из `../llm_api_to_langchain/.env`). Ключ выдают в
-[личном кабинете](https://developers.sber.ru/studio/workspaces/my-space/get/gigachat-api).
+Отдельно настраивать ничего не нужно: если в этой папке нет своего `.env`, ноутбук и
+`tools/check_env.py` берут `.env` прошлого занятия из `../llm_api_to_langchain/`.
+
+Свой `.env` нужен, если прошлое занятие вы пропустили или хотите здесь другие настройки — он
+важнее соседнего:
+
+```bash
+cp .env.example .env          # Windows: copy .env.example .env
+```
+
+В нём заполните `GIGACHAT_CREDENTIALS` — ключ авторизации GigaChat API из
+[личного кабинета](https://developers.sber.ru/studio/workspaces/my-space/get/gigachat-api).
 
 Не публикуйте `.env`: он добавлен в `.gitignore`.
 

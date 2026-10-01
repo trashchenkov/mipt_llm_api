@@ -37,12 +37,15 @@ for package in PACKAGES:
         fail(f"{package} не установлен", "выполните uv sync в папке langchain_deep_agents")
 
 print("\nФайл .env")
-env_file = ROOT / ".env"
-if not env_file.is_file():
+# Свой .env важнее; без него берём .env прошлого занятия из соседней папки.
+candidates = (ROOT / ".env", ROOT.parent / "llm_api_to_langchain" / ".env")
+env_file = next((path for path in candidates if path.is_file()), None)
+if env_file is None:
     fail(".env не найден", "cp .env.example .env и заполните GIGACHAT_CREDENTIALS")
 else:
     from dotenv import load_dotenv
 
+    ok(f"используется {env_file.relative_to(ROOT.parent)}")
     load_dotenv(env_file, override=False)
     for key in ("GIGACHAT_CREDENTIALS", "GIGACHAT_SCOPE", "GIGACHAT_MODEL"):
         if os.getenv(key):
